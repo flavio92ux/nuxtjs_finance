@@ -1,9 +1,27 @@
 <template>
-  <Tutorial/>
+  <div>
+    <div>
+      {{ $store.state.user }}
+    </div>
+
+    <pre>
+      {{ user }}
+    </pre>
+  </div>
+
 </template>
 
 <script>
-export default {
-  name: 'IndexPage'
-}
+  import { mapState } from 'vuex';
+
+  export default {
+    name: 'IndexPage',
+
+    computed: {
+      ...mapState({
+        user: state => state.user
+      })
+    }
+
+  }
 </script>
